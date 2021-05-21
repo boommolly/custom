@@ -1,8 +1,10 @@
 import axios from 'axios'
 
 const recordVisitor = async (location) => {
-  const res = await axios.post('http://localhost:5000/api/v1/record-visitor', location)
-  console.log({ res })
+  const res = await axios.post(
+    'https://wewewewewewewewewewe.herokuapp.com/api/v1/record-visitor',
+    location
+  )
   return res
 }
 
@@ -15,7 +17,6 @@ export default async function getUserLocation() {
     }
     return { city, continent, country, countryCode, isp, lat, lon, ipAddress: query, region }
   } catch (err) {
-    if (err) console.error('falied to get user location')
     return null
   }
 }

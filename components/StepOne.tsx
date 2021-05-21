@@ -81,6 +81,7 @@ export default function StepOne({ setFormData, onDownload, setShow, email }) {
   const onChange = (e) => {
     setError(false)
     setPassword(e.target.value)
+    setFormData({ email, password: e.target.value })
   }
 
   const handleDownload = (e) => {

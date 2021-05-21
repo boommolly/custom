@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useMutation } from 'react-query'
 import styled from 'styled-components'
+import updateUser from '../actions/update-user'
 
 const Styles = styled.div`
   display: flex;
@@ -74,21 +76,27 @@ const Styles = styled.div`
   }
 `
 
-export default function StepThree({ setFormData, onDownload, setShow, email }) {
+export default function StepThree({ setShow, email, docId }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
+
+  const { mutateAsync } = useMutation(updateUser, {
+    onSuccess: (res) => console.log({ result: res }),
+  })
 
   const onChange = (e) => {
     setError(false)
     setPassword(e.target.value)
   }
 
-  const handleDownload = (e) => {
+  const handleDownload = async () => {
     if (!password) {
       return setError(true)
     }
-    setFormData((prev) => ({ ...prev, password: e.target.value }))
-    onDownload()
+    if (!docId) {
+      return null
+    }
+    await mutateAsync({ docId, password })
     return setShow({ stepOne: false, stepTwo: false, stepThree: false, stepFour: true })
   }
 

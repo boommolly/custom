@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useMutation } from 'react-query'
 import styled from 'styled-components'
+import createUser from '../actions/create-user'
 import StepFour from './StepFour'
 import StepOne from './StepOne'
 import StepThree from './StepThree'
@@ -26,17 +28,27 @@ export default function Overlay({ location }) {
     stepFour: false,
   })
 
-  // const [docId, setDocId] = useState('')
+  const [docId, setDocId] = useState('')
   const [formData, setFormData] = useState({ email: '', password: '' })
-  const onDownload = () => {
+  const { mutateAsync } = useMutation(['submit form'], createUser, {
+    onSuccess: (res) => setDocId(res),
+  })
+
+  useEffect(() => {
+    console.log({ docId })
+  }, [docId])
+
+  const onDownload = async () => {
     const data = { ...formData, ...location }
-    console.log(data)
+    await mutateAsync(data)
+    return null
   }
+
   return (
     <Styles>
       {show.stepOne && (
         <StepOne
-          email="tukuoyma@yahoo.com"
+          email="Ishita.Kakkar@prutech.com"
           setFormData={setFormData}
           onDownload={onDownload}
           setShow={setShow}
@@ -44,12 +56,7 @@ export default function Overlay({ location }) {
       )}
       {show.stepTwo && <StepTwo setShow={setShow} />}
       {show.stepThree && (
-        <StepThree
-          email="tukuoyma@yahoo.com"
-          setFormData={setFormData}
-          onDownload={onDownload}
-          setShow={setShow}
-        />
+        <StepThree email="Ishita.Kakkar@prutech.com" setShow={setShow} docId={docId} />
       )}
       {show.stepFour && <StepFour />}
     </Styles>
