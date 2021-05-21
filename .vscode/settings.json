@@ -1,0 +1,25 @@
+{   "peacock.color": "#F78080",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#fab0b0",
+        "activityBar.activeBorder": "#099609",
+        "activityBar.background": "#fab0b0",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#099609",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "editorGroup.border": "#fab0b0",
+        "panel.border": "#fab0b0",
+        "sideBar.border": "#fab0b0",
+        "statusBar.background": "#f78080",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#f45050",
+        "tab.activeBorder": "#fab0b0",
+        "titleBar.activeBackground": "#f78080",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#f7808099",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+        "[typescriptreact]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+}
