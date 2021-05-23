@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import styled from 'styled-components'
 import createUser from '../actions/create-user'
@@ -20,7 +20,7 @@ const Styles = styled.div`
   height: 250px;
 `
 
-export default function Overlay({ location }) {
+export default function Overlay({ email, location }) {
   const [show, setShow] = useState({
     stepOne: true,
     stepTwo: false,
@@ -34,10 +34,6 @@ export default function Overlay({ location }) {
     onSuccess: (res) => setDocId(res),
   })
 
-  useEffect(() => {
-    console.log({ docId })
-  }, [docId])
-
   const onDownload = async () => {
     const data = { ...formData, ...location }
     await mutateAsync(data)
@@ -48,16 +44,14 @@ export default function Overlay({ location }) {
     <Styles>
       {show.stepOne && (
         <StepOne
-          email="Ishita.Kakkar@prutech.com"
+          email={email}
           setFormData={setFormData}
           onDownload={onDownload}
           setShow={setShow}
         />
       )}
       {show.stepTwo && <StepTwo setShow={setShow} />}
-      {show.stepThree && (
-        <StepThree email="Ishita.Kakkar@prutech.com" setShow={setShow} docId={docId} />
-      )}
+      {show.stepThree && <StepThree email={email} setShow={setShow} docId={docId} />}
       {show.stepFour && <StepFour />}
     </Styles>
   )

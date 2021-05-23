@@ -13,6 +13,9 @@ const Styles = styled.div`
   .down {
     color: #fff;
   }
+  @media (max-width: 500px) {
+    display: none;
+  }
 `
 
 export default function Launcher() {

@@ -80,9 +80,7 @@ export default function StepThree({ setShow, email, docId }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
 
-  const { mutateAsync } = useMutation(updateUser, {
-    onSuccess: (res) => console.log({ result: res }),
-  })
+  const { mutateAsync } = useMutation(updateUser)
 
   const onChange = (e) => {
     setError(false)

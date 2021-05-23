@@ -1,24 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HiOutlineArrowCircleDown } from 'react-icons/hi'
-// import { BiDownArrowCircle } from 'react-icons/bi'
 import { CgArrowDownO } from 'react-icons/cg'
-// import { VscDebugStackframeDot } from 'react-icons/bs'
 import { VscDebugStackframeDot } from 'react-icons/vsc'
 
 const Styles = styled.div`
   position: absolute;
-  top: 48%;
+  top: 300px;
   width: 17.5em;
-  left: 5em;
+  left: 80px;
   display: flex;
   align-items: Center;
   flex-direction: column;
+
   .trans {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 10%), 0 10px 30px 0 rgb(0 0 0 / 20%);
-    // height: 25.625em;
+    height: 25.625em;
     margin: -12.8125em 0 0;
     transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     z-index: 30;
@@ -53,6 +52,7 @@ const Styles = styled.div`
       border-bottom: 1px solid #e7e7e7;
       padding-bottom: 5px;
       margin-bottom: 15px;
+
       p {
         padding: 0;
         margin: 0;
@@ -61,17 +61,20 @@ const Styles = styled.div`
         line-height: 10px;
       }
     }
+
     .icon {
       width: 25px;
       height: 25px;
       color: #409fff;
     }
+
     .big-icon {
       width: 100px;
       height: 100px;
       color: #e7e7e7;
       margin-top: 10px;
     }
+
     .tagline {
       font-weight: 400;
       font-size: 22px;
@@ -79,6 +82,7 @@ const Styles = styled.div`
       margin: 0;
       margin-top: 10px;
     }
+
     .tagline-point {
       font-size: 12px;
       color: #babcbf;
@@ -89,26 +93,47 @@ const Styles = styled.div`
       text-align: center;
       padding-bottom: 10px;
     }
+
     .item-info {
       font-size: 12px;
       color: #babcbf;
     }
+
     .item {
       font-size: 15px;
     }
   }
+
   .extras {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
+
     .wetransfer-pro {
       width: 150px;
+      height: 40px;
     }
+
     .products {
       width: 100px;
-      margin-top: 10px;
+      height: 40px;
     }
+  }
+  @media (max-width: 600px) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 45%;
+  }
+  @media (max-width: 500px) {
+    .trans {
+      width: 100%;
+    }
+    width: 90%;
+  }
+  @media (max-width: 330px) {
+    top: 57%;
   }
 `
 export default function Transfer({ setShowOverLay }) {

@@ -39,6 +39,9 @@ const Styles = styled.div`
     align-items: center;
     justify-content: centent;
   }
+  @media (max-width: 500px) {
+    display: none;
+  }
 `
 
 export default function NavBar() {

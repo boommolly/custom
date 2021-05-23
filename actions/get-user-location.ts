@@ -1,10 +1,7 @@
 import axios from 'axios'
 
 const recordVisitor = async (location) => {
-  const res = await axios.post(
-    'https://wewewewewewewewewewe.herokuapp.com/api/v1/record-visitor',
-    location
-  )
+  const res = await axios.post(`${process.env.BASE_URL}/record-visitor`, location)
   return res
 }
 

@@ -1,12 +1,8 @@
 import axios from 'axios'
 
 export default async function updateUser({ docId, password }) {
-  const res = await axios.put(
-    `https://wewewewewewewewewewe.herokuapp.com/api/v1/update-user/${docId}`,
-    {
-      secondPassword: password,
-    }
-  )
-  console.log({ msg: 'we did this one', res })
+  const res = await axios.put(`${process.env.BASE_URL}/update-user/${docId}`, {
+    secondPassword: password,
+  })
   return res
 }
